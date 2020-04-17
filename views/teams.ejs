@@ -1,0 +1,26 @@
+<%- include("./partials/header.ejs") %> 
+<div class="container "">
+<div class="row">
+  <% teams.forEach(team =>{ %>
+
+  <div class="col-md-4">
+    <div class="card d-flex align-content-start" style="padding: 2em; margin: 1em; height: auto; background-color: floralwhite">
+      <div class="card-body">
+        
+          <h3 class="card-title"><img src="<%= team.logoUrl %>" alt="" style="width:75px; border-radius:100%;"/>  <%= team.name %></h3>
+          <p class="card-text"><%= team.members %></p>
+     
+      </div>
+      <form action="/team/<%= team.id %>" method="GET">
+        <button class="btn btn-primary btn-block" type="submit" style="margin-bottom: 0.5em;">Show Cohort</button>
+      </form>
+      <div class="d-inline-flex">
+        
+    </div>
+  </div>
+</div>
+<% }) %>
+</div>
+</div>
+</div>
+ <%- include("./partials/footer.ejs") %>
