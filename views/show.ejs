@@ -1,0 +1,72 @@
+<%- include("./partials/header.ejs") %> 
+<!-- <div></div> -->
+<div class="container">
+  <form action="/team/<%= team.id %>/edit" method="GET"> 
+  <button class="btn btn-warning btn-block" type="submit">Edit</button>
+</form>
+<form action="/team/<%= team.id %>" method="POST">
+<input type="hidden" name="_method" value="DELETE">  
+<button class="btn btn-danger btn-block" type="submit" >Delete</button>
+</form>
+  
+</div>
+
+<div class="container">
+        <div class="row">
+          <div class="col-lg-12"></div>
+            <div class="card" style="padding: 2em; margin: 1em; height: 100%; width:100%; background-color: floralwhite">
+              <div class="card-body"></div>
+            <h3 class="card-title"><img src="<%= team.logoUrl %>" alt="" style="width:75px; border-radius:100%;"/> <%= team.name %></h3>
+            <h6 class="card-text"><%= team.members %></h6>
+            
+        
+            
+            <div>
+                    <form action="/team/<%=team.id%>/method" method="GET">
+            
+                       <div> <input type="radio" name="x"  value = "1" id = "TeamCount" >Team Count</input><br></div> 
+                    <div><input type="radio" name="x" value = "2" id = "NumberPerTeam"> Number Per Team </input><br></div> 
+                        <div><input
+                        type="number"
+                        name="number"
+                        id="number"
+                        placeholder="Quantity"
+                      /></div>
+                    
+                      <div> <button class="btn btn-primary" type="submit" style="margin-bottom: 0.5em;">Assign Teams</button></div>
+                    </form>  
+                
+            </div>
+            <% if (Object.keys(obj)!= 0) {%> 
+            <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Team Number</th>
+                        <th scope="col"> Members</th>
+                        <th scope="col">Team Size</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                         <% let i = 1 %> 
+                        <% for(let value in obj ) {%> 
+                        <tr>
+                        
+                        <th scope="row"><%= i++ %> </th>
+                        <td><%= obj[value] %></td>
+                        <td> <%= obj[value].length %> </td>
+                      </tr>
+                      <% } %>
+                    </tbody>
+                  </table>
+                <% } %> 
+                </div>
+           </div>
+        </div>
+     </div>
+</div>
+
+
+<%- include("./partials/footer.ejs") %> 
+
+
+

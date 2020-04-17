@@ -1,0 +1,58 @@
+<%- include("./partials/header.ejs") %>
+
+  <div class="container" style="margin: 5em">
+    <form action="/team/<%= team.id %>/edit" method="POST">
+      <input type="hidden" name="_method" value="PATCH" />
+      <h3>Please edit the Cohort below !</h3>
+      <div class="form-group">
+        <label for="logoUrl">LogoUrl</label>
+        <input
+          type="text"
+          class="form-control"
+          id="logoUrl"
+          aria-describedby="emailHelp"
+          name="logoUrl"
+          value="<%= team.logoUrl %>"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >Please paste the image address of your Cohort logo.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="name">Name of your Cohort</label>
+        <input
+          type="string"
+          class="form-control"
+          id="name"
+          name="name"
+          value="<%= team.name %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="members">Members</label>
+        <input
+          type="text"
+          class="form-control"
+          id="members"
+          name="members"
+          value=" <%= team.members%>"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >Please add team members seperated by commas ','</small
+        >
+      </div>
+
+      <div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          style="margin-bottom: 0.5em;"
+        >
+          Save your Edits
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</div>
